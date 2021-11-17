@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">Haiku</string>
-    <string name="gen_haiku">Generate a Haiku</string>
-    <string name="add_words">Add Words</string>
-    <string name="enter_a_word">Enter a word.</string>
-</resources>
