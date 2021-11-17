@@ -142,9 +142,6 @@ class MainActivity : AppCompatActivity() {
                     "2" -> two_syllable.add(word)
                     "3" -> three_syllable.add(word)
                     "4" -> four_syllable.add(word)
-                    "5" -> five_syllable.add(word)
-                    "6" -> six_syllable.add(word)
-                    "7" -> seven_syllable.add(word)
                     else -> {}
                 }
             }
@@ -203,48 +200,15 @@ class MainActivity : AppCompatActivity() {
             four_syllable.add("catastrophe")
             four_syllable.add("totality")
         }
-        if (five_syllable.size > 0) {
-            hasWords[4] = true
-        } else {
-            // just in case the service is unavailable
-            five_syllable.add("impresario")
-            five_syllable.add("archipelago")
-            five_syllable.add("pianissimo")
-            five_syllable.add("generality")
-            five_syllable.add("circularity")
-        }
-        if (six_syllable.size > 0) {
-            hasWords[5] = true
-        } else {
-            // just in case the service is unavailable
-            six_syllable.add("colonialism")
-            six_syllable.add("materialism")
-            six_syllable.add("emotionalism")
-            six_syllable.add("congeniality")
-            six_syllable.add("irrationality")
-        }
-        if (seven_syllable.size > 0) {
-            hasWords[6] = true
-        } else {
-            // just in case the service is unavailable
-            seven_syllable.add("colonialism")
-            seven_syllable.add("Arteriosclerosis")
-            seven_syllable.add("Artificiality")
-            seven_syllable.add("Autobiographical")
-            seven_syllable.add("Editorializing")
-        }
 
         Log.i("one_syllable.size: ", one_syllable.size.toString())
         Log.i("two_syllable.size: ", two_syllable.size.toString())
         Log.i("three_syllable.size: ", three_syllable.size.toString())
         Log.i("four_syllable.size: ", four_syllable.size.toString())
-        Log.i("five_syllable.size: ", five_syllable.size.toString())
-        Log.i("six_syllable.size: ", six_syllable.size.toString())
-        Log.i("seven_syllable.size: ", seven_syllable.size.toString())
 
         // Randomly choose Haiku pattern
-        // line 1: 5 syllable
-        // line 2: 7 syllable
+        // line 1: 5 syllables
+        // line 2: 7 syllables
         // line 3. 5 syllables
         var stanza: String
         when (random.nextInt(5 - 1 + 1)) {
@@ -258,7 +222,7 @@ class MainActivity : AppCompatActivity() {
             }
             2 -> {
                 stanza = """
-                    ${five_syllable[random.nextInt(five_syllable.size - 1)]},
+                    ${one_syllable[random.nextInt(one_syllable.size - 1)]} ${two_syllable[random.nextInt(two_syllable.size - 1)]} ${one_syllable[random.nextInt(one_syllable.size - 1)]} ${one_syllable[random.nextInt(one_syllable.size - 1)]},
                     
                     """.trimIndent()
                 stanza =
@@ -270,7 +234,7 @@ class MainActivity : AppCompatActivity() {
             3 -> {
                 stanza = """${three_syllable[random.nextInt(three_syllable.size - 1)]} ${two_syllable[random.nextInt(two_syllable.size - 1)]},""" + System.lineSeparator()
                 stanza =
-                    """$stanza${one_syllable[random.nextInt(one_syllable.size - 1)]} ${six_syllable[random.nextInt(six_syllable.size - 1)]},""" + System.lineSeparator()
+                    """$stanza${one_syllable[random.nextInt(one_syllable.size - 1)]} ${three_syllable[random.nextInt(three_syllable.size - 1)]} ${three_syllable[random.nextInt(three_syllable.size - 1)]},""" + System.lineSeparator()
                 stanza =
                     stanza + two_syllable[random.nextInt(two_syllable.size - 1)] + " " + three_syllable[random.nextInt(three_syllable.size - 1)] + "."
                 haiku!!.text = stanza
@@ -296,7 +260,7 @@ class MainActivity : AppCompatActivity() {
                 stanza =
                     """$stanza${three_syllable[random.nextInt(three_syllable.size - 1)]} ${four_syllable[random.nextInt(four_syllable.size - 1)]},""" + System.lineSeparator()
                 stanza =
-                    stanza + five_syllable[random.nextInt(five_syllable.size - 1)] + " " + two_syllable[random.nextInt(two_syllable.size - 1)] + "."
+                    stanza + two_syllable[random.nextInt(two_syllable.size - 1)] + " " + one_syllable[random.nextInt(one_syllable.size - 1)] + " " +  two_syllable[random.nextInt(two_syllable.size - 1)] + "."
                 haiku!!.text = stanza
             }
         }
