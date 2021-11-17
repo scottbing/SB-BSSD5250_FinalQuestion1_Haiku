@@ -73,12 +73,12 @@ class MainActivity : AppCompatActivity() {
         word2 = findViewById<View>(R.id.word2) as EditText
         word3 = findViewById<View>(R.id.word3) as EditText
         haiku = findViewById<View>(R.id.haiku_text) as TextView
-        submit = findViewById<View>(R.id.submit) as Button
-        submit!!.setOnClickListener { processWords() }
+//        submit = findViewById<View>(R.id.submit) as Button
+//        submit!!.setOnClickListener { processWords() }
         val genHaiku = findViewById<View>(R.id.haiku) as Button
         genHaiku.setOnClickListener {
             Log.d("Gen Haiku", "Generate Haiku")
-            makeHaiku()
+            processWords()
         }
     }
 
